@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <hgroup>
+        <h1>Welcome to My Blog</h1>
+        <p>Thoughts on technology, programming, and more</p>
+    </hgroup>
+</section>
+
+<section>
+    <h2>Recent Posts</h2>
+    {% set section = get_section(path="_index.md") %}
+    {% for page in section.pages %}
+    <article>
+        <header>
+            <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+        </header>
+        {% if page.summary %}
+        <p>{{ page.summary }}</p>
+        {% endif %}
+        <footer>
+            <a href="{{ page.permalink }}" role="button">Read more →</a>
+        </footer>
+    </article>
+    {% endfor %}
+</section>
+{% endblock content %}

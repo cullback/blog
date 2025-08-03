@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        /* Override Pico CSS defaults for better blog layout */
+        body > main {
+            padding-top: 2rem;
+        }
+        
+        /* Code highlighting styles */
+        pre {
+            overflow-x: auto;
+            padding: 1rem;
+            background-color: var(--code-background-color);
+            border-radius: var(--border-radius);
+        }
+        
+        /* Math display styles */
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 1rem 0;
+        }
+        
+        /* Blog post meta */
+        .post-meta {
+            color: var(--muted-color);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Semantic article styling */
+        article header {
+            margin-bottom: 2rem;
+        }
+        
+        article footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--muted-border-color);
+        }
+    </style>
+    
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+    <main class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><strong><a href="{{ config.base_url }}">My Blog</a></strong></li>
+                </ul>
+                <ul>
+                    <li><a href="{{ config.base_url }}">Home</a></li>
+                    <li><a href="{{ config.base_url }}/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        {% block content %}{% endblock content %}
+        
+        <footer>
+            <p>&copy; {{ now() | date(format="%Y") }} My Blog. Built with <a href="https://www.getzola.org/">Zola</a> and <a href="https://picocss.com/">Pico CSS</a>.</p>
+        </footer>
+    </main>
+    
+    <!-- KaTeX auto-render -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+</body>
+</html>
