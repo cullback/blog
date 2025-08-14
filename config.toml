@@ -1,27 +1,10 @@
-# The URL the site will be built for
-base_url = "https://cullback.github.io/blog"
-
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = false
-
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
-
-# Enable tags taxonomy
-taxonomies = [
-    { name = "tags", feed = true },
-]
+base_url = "https://cullback.github.io"
+title = "cullback"
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
-highlight_theme = "base16-ocean-dark"
-
-# Enable KaTeX for math rendering
-render_emoji = true
-external_links_target_blank = true
-smart_punctuation = true
+highlight_theme = "dracula"
 
 [extra]
-# Put all your custom variables here
+github = "https://github.com/cullback"
+mathjax = true

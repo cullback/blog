@@ -1,29 +1,51 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 
-{% block content %}
-<section>
-    <hgroup>
-        <h1>Welcome to My Blog</h1>
-        <p>Thoughts on technology, programming, and more</p>
-    </hgroup>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section>
-    <h2>Recent Posts</h2>
-    {% set section = get_section(path="_index.md") %}
-    {% for page in section.pages %}
-    <article>
-        <header>
-            <h3><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
-            <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
-        </header>
-        {% if page.summary %}
-        <p>{{ page.summary }}</p>
-        {% endif %}
-        <footer>
-            <a href="{{ page.permalink }}" role="button">Read more →</a>
-        </footer>
-    </article>
-    {% endfor %}
-</section>
-{% endblock content %}
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" /> -->
+    <link rel="stylesheet" href="/main2.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+</head>
+
+<body class="container">
+    <nav>
+        <ul>
+            <li>
+                <h1><a href="/">{{ config.title }}</a></h1>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <article>
+            <h1>Posts</h1>
+
+            {% for page in section.pages %}
+            <p>{{ page.date }} - <a href="{{ page.permalink }}">{{ page.title }}</a> </p>
+            {% endfor %}
+        </article>
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>
