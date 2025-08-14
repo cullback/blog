@@ -6,4 +6,4 @@ run:
 
 format:
     mdformat content
-    # fd -e md | xargs sd '\\\\\\\\' '\\'
+    ruff format content
