@@ -63,9 +63,9 @@ Alternatively, copy the file [here](https://github.com/cullback/dotfiles/blob/ma
 
 ## Further reading
 
-- https://getreuer.info/posts/keyboards/select-word/index.html
-- http://capslock.vonng.com/
+- <https://getreuer.info/posts/keyboards/select-word/index.html>
+- <http://capslock.vonng.com/>
 - [Karabiner-elements key codes](https://github.com/pqrs-org/Karabiner-Elements/blob/main/src/apps/SettingsWindow/Resources/simple_modifications.json)
-- https://github.com/mattmc3/keyboard-tools/tree/main/mappings/Karabiner
-- https://getreuer.info/posts/keyboards/macros/
-- https://getreuer.info/posts/keyboards/select-word/index.html
+- <https://github.com/mattmc3/keyboard-tools/tree/main/mappings/Karabiner>
+- <https://getreuer.info/posts/keyboards/macros/>
+- <https://getreuer.info/posts/keyboards/select-word/index.html>
