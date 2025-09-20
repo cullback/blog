@@ -1,41 +1,29 @@
-def find_different(text: str) -> int:
-    """Returns the index of mirrored pairs that hold different values."""
-    indexed_pairs = enumerate(zip(text, text[::-1]))
-    i = next((i for i, (a, b) in indexed_pairs if a != b), len(text) // 2)
-    return i
+def drop_ith(msg: str, i: int) -> str:
+    return msg[:i] + msg[i + 1 :]
+
+
+def is_ascending(msg: str) -> bool:
+    return int(msg) <= int(msg[::-1])
 
 
 def encode(msg: str) -> str:
-    i = find_different(msg)
     n = len(msg) // 2
+    check = is_ascending(msg)
 
-    if len(msg) % 2 == 0:
-        return msg[:n] + msg[i] + msg[n:]
+    base = "0" if len(msg) % 2 == 0 else msg[n]
+    flip = {"0": "1", "1": "0"}
+    bit = base if check else flip[base]
 
-    middle = msg[n] if msg[i] == "0" else ["1", "0"][int(msg[n])]
-    head = msg[: n + 1]
-    tail = msg[n + 1 :]
-    return head + middle + tail
+    return msg[:n] + bit + msg[n:]
 
 
 def decode(msg: str) -> str:
-    i = find_different(msg)
-    n = len(msg) // 2
-
-    if len(msg) % 2 == 1:
-        received = msg[:n] + msg[n + 1 :]
-        if msg[i] != msg[n]:
-            return received[::-1]
-        return received
-
-    head = msg[: n - 1]
-    mid1 = msg[n - 1]
-    mid2 = msg[n]
-    tail = msg[n + 1 :]
-    expected = ["0", "1"][mid1 != mid2]
-    if msg[i] != expected:
-        return (head + mid2 + tail)[::-1]
-    return head + mid1 + tail
+    n = (len(msg) - 1) // 2
+    check = is_ascending(drop_ith(msg, n))
+    bit = msg[n] == "0" if len(msg) % 2 == 1 else msg[n] == msg[n + 1]
+    if check == bit:
+        return drop_ith(msg, n)
+    return drop_ith(msg[::-1], n)
 
 
 def test_protocol():
@@ -56,7 +44,7 @@ def test_string(original):
     decoded = decode(encoded[::-1])
 
     if original != decoded:
-        print(f"FAIL {original} -> {encoded[::-1]} -> {decoded}")
+        print(f"FAIL {original} -> rev {encoded[::-1]} -> {decoded}")
 
 
 if __name__ == "__main__":

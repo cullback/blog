@@ -6,9 +6,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a eros accumsan ve
 
 A table
 
-| a   | b   | c   |
-| --- | --- | --- |
-| 1   | 2   | 3   |
+| a | b | c |
+| - | - | - |
+| 1 | 2 | 3 |
 
 Nullam tempus a nisl id rhoncus. Sed maximus ex lacus, quis porttitor justo varius a. Sed maximus maximus tellus imperdiet viverra. Fusce tincidunt ultrices augue ut tincidunt. Suspendisse maximus id odio quis pellentesque. Praesent ac ante a felis pulvinar maximus. Aliquam erat volutpat. Nulla facilisi. Donec quis viverra massa, vel auctor elit. Aliquam erat volutpat. Pellentesque eget pellentesque magna, at vehicula nunc. Mauris blandit lacinia lacinia.
 

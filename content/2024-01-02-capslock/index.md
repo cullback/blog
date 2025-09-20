@@ -6,7 +6,7 @@ I remapped the `capslock` key on my macbook pro to `fn` and bound several useful
 
 ![layout](./capslock.png)
 
-*made with [keyboard-layout-editor.com](https://keyboard-layout-editor.com)*
+_made with [keyboard-layout-editor.com](https://keyboard-layout-editor.com)_
 
 The number row turns into the original mac function keys (no siri or spotlight), namely screen brightness, mission control, launchpad, keyboard brightness, playback controls, and volume. These are especially useful for macs afflicted with touchbars.
 
